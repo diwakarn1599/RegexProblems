@@ -90,6 +90,27 @@ namespace RegexProblems
             }
 
         }
+        public static void ValidatePassword()
+        {
+            //array for list of Passwords
+            string[] email = { "as@A5d","i9asDdf@gh","sdsg","as@3jhfA","jdfgW@gcgh","gygyugyhA2" };
+            //regex pattern for Password
+            string s = @"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$";
+            Regex regex = new Regex(s);
+            foreach (string i in email)
+            {
+                Match res = regex.Match(i);
+                if (res.Success)
+                {
+                    Console.WriteLine($"Valid --> {i}");
+                }
+                else
+                {
+                    Console.WriteLine($"InValid --> {i}");
+                }
+            }
+
+        }
 
 
 
