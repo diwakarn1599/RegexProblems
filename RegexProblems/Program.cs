@@ -7,7 +7,7 @@ namespace RegexProblems
         static void Main(string[] args)
         {
             Console.WriteLine("Regex Problems");
-            RegexProblem.ValidateLastName();
+            RegexProblem.ValidateEmail();
         }
     }
 }
