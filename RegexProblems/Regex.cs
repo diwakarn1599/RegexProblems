@@ -69,6 +69,28 @@ namespace RegexProblems
 
         }
 
+        public static void ValidatePhoneNumber()
+        {
+            //array for list of Numbers
+            string[] email = { "91 1234567890", "21 9807654321","3 9076543212","07 9876543219","5 908765543","67 3234545" };
+            //regex pattern for Number
+            string s = @"^[1-9]{2}[ ][0-9]{10}$";
+            Regex regex = new Regex(s);
+            foreach (string i in email)
+            {
+                Match res = regex.Match(i);
+                if (res.Success)
+                {
+                    Console.WriteLine($"Valid --> {i}");
+                }
+                else
+                {
+                    Console.WriteLine($"InValid --> {i}");
+                }
+            }
+
+        }
+
 
 
     }
