@@ -5,110 +5,163 @@ using System.Text.RegularExpressions;
 
 namespace RegexProblems
 {
-    class RegexProblem
+    public class RegexProblem
     {
-        public static void ValidateFirstName()
+        public static void Validation()
         {
-            string[] firstName = { "Diwa", "Raju", "Manu", "Jack", "ma", "arun","Ja","1sa","RRaj","Diwakaaaar" };
+            //ValidateFirstName();
+            //ValidateLastName();
+            //ValidateEmail();
+            //ValidatePhoneNumber();
+            //ValidatePassword();
+        }
+        public static string ValidateFirstName(string fName)
+        {
+           
             string s = @"^[A-Z]{1}[a-z]{2,}";
             Regex regex = new Regex(s);
-
-            foreach( string i in firstName)
+            string check = string.Empty;
+            if (fName != null)
             {
-                Match res = regex.Match(i);
+                Match res = regex.Match(fName);
                 if (res.Success)
                 {
-                    Console.WriteLine($"Valid --> {i}");
+                    Console.WriteLine($"Valid --> {fName}");
+                    check = "valid";
                 }
                 else
                 {
-                    Console.WriteLine($"InValid --> {i}");
+                    Console.WriteLine($"InValid --> {fName}");
+                    check = "invalid";
+                    throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.INVALID_NAME, "FirstName is Invalid");
                 }
+
             }
+            else
+            {
+                throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.EMPTY_MESSAGE, "FirstName is Empty");
+            }
+
+            return check;
         }
-        public static void ValidateLastName()
+        public static string ValidateLastName(string lName)
         {
-            //array for list of mails
-            string[] lastName = { "Diwa", "Raju", "Manu", "Jack", "ma", "arun", "Ja", "1sa", "RRaj", "Diwakaaaar" };
-            //regex for name
+
             string s = @"^[A-Z]{1}[a-z]{2,}";
             Regex regex = new Regex(s);
-
-            foreach (string i in lastName)
+            string check = string.Empty;
+            if (lName != null)
             {
-                Match res = regex.Match(i);
+                Match res = regex.Match(lName);
                 if (res.Success)
                 {
-                    Console.WriteLine($"Valid --> {i}");
+                    Console.WriteLine($"Valid --> {lName}");
+                    check = "valid";
                 }
                 else
                 {
-                    Console.WriteLine($"InValid --> {i}");
+                    Console.WriteLine($"InValid --> {lName}");
+                    check = "invalid";
+                    throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.INVALID_NAME, "lastName is Invalid");
                 }
+
             }
+            else
+            {
+                throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.EMPTY_MESSAGE, "lastName is Empty");
+            }
+
+            return check;
         }
-        public static void ValidateEmail()
+        public static string ValidateEmail(string Email)
         {
-            //array for list of emails
-            string[] email = { "abc@gmail.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc", "abc@.com.my", "abc123@.com", "abc123@.com.com", "abc()*@gmail.com", ".abc@abc.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
+          
             //regex pattern for email
             string s = @"^abc([+. \-_]{1}\w+)?@[a-z0-9]+\.[a-z]{2,3}(\.[a-z]{2})?$";
             Regex regex = new Regex(s);
-            foreach (string i in email)
+            string check = string.Empty;
+            if (Email != null)
             {
-                Match res = regex.Match(i);
+                Match res = regex.Match(Email);
+
                 if (res.Success)
                 {
-                    Console.WriteLine($"Valid --> {i}");
+                    Console.WriteLine($"Valid --> {Email}");
+                    check = "valid";
                 }
                 else
                 {
-                    Console.WriteLine($"InValid --> {i}");
+                    Console.WriteLine($"InValid --> {Email}");
+                    check = "invalid";
+                    throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.INVALID_EMAIL, "Email is Invalid");
                 }
             }
+            else
+            {
+                throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.NULL_MESSAGE, "Email is Empty");
+            }
 
+
+            return check;
         }
 
-        public static void ValidatePhoneNumber()
+        public static string ValidatePhoneNumber(string phoneNumber)
         {
-            //array for list of Numbers
-            string[] email = { "91 1234567890", "21 9807654321","3 9076543212","07 9876543219","5 908765543","67 3234545" };
+            
             //regex pattern for Number
             string s = @"^[1-9]{2}[ ][0-9]{10}$";
             Regex regex = new Regex(s);
-            foreach (string i in email)
+            string check = string.Empty;
+            if (phoneNumber != null)
             {
-                Match res = regex.Match(i);
+                Match res = regex.Match(phoneNumber);
+
                 if (res.Success)
                 {
-                    Console.WriteLine($"Valid --> {i}");
+                    Console.WriteLine($"Valid --> {phoneNumber}");
+                    check = "valid";
                 }
                 else
                 {
-                    Console.WriteLine($"InValid --> {i}");
+                    Console.WriteLine($"InValid --> {phoneNumber}");
+                    check = "invalid";
+                    throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.INVALID_PHONE, "Phone number is Invalid");
                 }
             }
+            else
+            {
+                throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.NULL_MESSAGE, "Phone number is Empty");
+            }
+            return check;
 
         }
-        public static void ValidatePassword()
+        public static string ValidatePassword(string password)
         {
-            //array for list of Passwords
-            string[] email = { "as@A5d","i9asDdf@gh","sdsg","as@3jhfA","jdfgW@gcgh","gygyugyhA2" };
             //regex pattern for Password
             string s = @"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$";
             Regex regex = new Regex(s);
-            foreach (string i in email)
+            string check = string.Empty;
+            if (password != null)
             {
-                Match res = regex.Match(i);
+                Match res = regex.Match(password);
+
                 if (res.Success)
                 {
-                    Console.WriteLine($"Valid --> {i}");
+                    Console.WriteLine($"Valid --> {password}");
+                    check = "valid";
                 }
                 else
                 {
-                    Console.WriteLine($"InValid --> {i}");
+                    Console.WriteLine($"InValid --> {password}");
+                    check = "invalid";
+                    throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.INVALID_PASSWORD, "Password is Invalid");
                 }
             }
+            else
+            {
+                throw new RegexProblemsCustomExceptions(RegexProblemsCustomExceptions.ExceptionType.NULL_MESSAGE, "password is Empty");
+            }
+            return check;
 
         }
 
