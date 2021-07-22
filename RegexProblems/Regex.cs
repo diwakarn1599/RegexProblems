@@ -15,6 +15,11 @@ namespace RegexProblems
             //ValidatePhoneNumber();
             //ValidatePassword();
         }
+        /// <summary>
+        /// Method  for valid first name
+        /// </summary>
+        /// <param name="fName"></param>
+        /// <returns></returns>
         public static string ValidateFirstName(string fName)
         {
            
@@ -44,6 +49,11 @@ namespace RegexProblems
 
             return check;
         }
+        /// <summary>
+        /// Method for valid Last name
+        /// </summary>
+        /// <param name="lName"></param>
+        /// <returns></returns>
         public static string ValidateLastName(string lName)
         {
 
@@ -73,6 +83,11 @@ namespace RegexProblems
 
             return check;
         }
+        /// <summary>
+        /// Method for validate email
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <returns></returns>
         public static string ValidateEmail(string Email)
         {
           
@@ -104,6 +119,11 @@ namespace RegexProblems
 
             return check;
         }
+        /// <summary>
+        /// Method for validate phone number
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
 
         public static string ValidatePhoneNumber(string phoneNumber)
         {
@@ -135,6 +155,11 @@ namespace RegexProblems
             return check;
 
         }
+        /// <summary>
+        /// Method for validate password
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static string ValidatePassword(string password)
         {
             //regex pattern for Password

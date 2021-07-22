@@ -5,7 +5,9 @@ namespace RegexTest
     [TestClass]
     public class UnitTest1
     {
-
+        /// <summary>
+        /// Test method for valid first name
+        /// </summary>
         [TestMethod]
         public void TestFirstName()
         {
@@ -27,6 +29,9 @@ namespace RegexTest
             }
             
         }
+        /// <summary>
+        /// Test method for invalid first name
+        /// </summary>
         [TestMethod]
         public void TestInvalidFirstName()
         {
@@ -48,6 +53,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        /// Test method for valid last name
+        /// </summary>
         [TestMethod]
         public void TestValidLastName()
         {
@@ -69,6 +77,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        /// Test method for invalid last name
+        /// </summary>
         [TestMethod]
         public void TestInvalidLastName()
         {
@@ -90,6 +101,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        /// Test method for valid email
+        /// </summary>
         [TestMethod]
         public void TestValidEmail()
         {
@@ -111,6 +125,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        ///  Test method for invalid email
+        /// </summary>
         [TestMethod]
         public void TestInvalidEmail()
         {
@@ -132,6 +149,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        ///  Test method for valid phone number
+        /// </summary>
         [TestMethod]
         public void TestValidPhoneNumber()
         {
@@ -153,6 +173,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        /// Test method for invalid phone number
+        /// </summary>
         [TestMethod]
         public void TestInvalidPhoneNumber()
         {
@@ -174,6 +197,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        /// Test method for valid password
+        /// </summary>
         [TestMethod]
         public void TestValidPassword()
         {
@@ -195,6 +221,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        /// Test method for invalid password
+        /// </summary>
         [TestMethod]
         public void TestInvalidPassword()
         {
@@ -216,6 +245,9 @@ namespace RegexTest
             }
 
         }
+        /// <summary>
+        /// Test method to create dynamic object
+        /// </summary>
         [TestMethod]
         public void CreateObject()
         {
@@ -223,6 +255,27 @@ namespace RegexTest
             RegexFactory rf = new RegexFactory();
             object actual = rf.CreateRegexObject("RegexProblems.RegexProblem", "RegexProblem");
             expected.Equals(actual);
+
+        }
+        /// <summary>
+        /// Test method for class not found exception
+        /// </summary>
+        [TestMethod]
+        public void CreateObjectClassNotFound()
+        {
+            object expected = new RegexProblem();
+            RegexFactory rf = new RegexFactory();
+            try
+            {
+                object actual = rf.CreateRegexObject("RegexProblems.RegexProblemm", "RegexProblemm");
+                expected.Equals(actual);
+            }
+            catch (RegexProblemsCustomExceptions ex)
+            {
+                string exp = "Class Not found";
+                exp.Equals(ex.Message);
+            }
+            
 
         }
     }
